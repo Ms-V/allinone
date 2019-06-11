@@ -101,9 +101,10 @@ int fix_p()
 	printf("=  2.Set IE Proxy and Enable(Old)   =\n");
 	printf("= 3.Remove ALL IE Proxy and disble  =\n");
 	printf("= 4.Set standard Local Adminisrator =\n");
+	printf("=    5.Bitlocker can't find file    =\n");
 	printf("=====================================\n");
 	printf("\n");
-	printf("Please enter num 1,2 or r return to main menu q to exit:\n");
+	printf("Please enter num 1-5 or r return to main menu q to exit:\n");
 }
 
 int ac_m()//¼¤»îº¯Êý 
@@ -207,6 +208,12 @@ int fix_m()
 				sprintf(set_admin_group,"Powershell -ExecutionPolicy bypass net localgroup Administrators %s /add",local_admin);
 				system(set_admin);
 				system(set_admin_group);
+				Sleep(2000);
+				system("cls"); 
+				continue;
+			case '5':
+				printf("Delete bitlokcer file.when finish please restart computer!!!\n");
+				system("ren C:\\Windows\\System32\\Recovery\\ReAgent.xml ReAgent.xml.back%date:~0,4%%date:~5,2%%date:~8,2%%time:~0,2%%time:~3,2%%time:~6,2%");
 				Sleep(2000);
 				system("cls"); 
 				continue;
